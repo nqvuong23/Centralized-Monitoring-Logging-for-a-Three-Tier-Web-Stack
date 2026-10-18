@@ -1,0 +1,35 @@
+# Vagrant: virtual disks and state, never commit
+.vagrant/
+*.box
+
+# Secrets: private keys, vault passwords, certificates
+*.key
+*.pem
+*_rsa
+*_ed25519
+vault_pass*
+.vault_pass
+pki/
+
+# The provisioning key pair: ship the public half only.
+# Matched by name because the private key has no extension to match on.
+vagrant-provision/ansible-key
+!vagrant-provision/ansible-key.pub
+
+# Ansible
+*.retry
+ansible/collections/
+
+# Run output, not source
+diagnostics/
+loadtest/results/
+*.log
+scripts/*/logs/
+scripts/*/.state
+
+# OS and editor noise
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
